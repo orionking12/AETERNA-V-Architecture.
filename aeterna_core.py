@@ -1,37 +1,34 @@
 """
-AETERNA-V: Fifth Generation Cognitive Architecture (SSM-Based)
--------------------------------------------------------------------------
-Copyright (c) 2026 Jorge Humberto Dávalos González (Orion / Vox-114)
+AETERNA-V: FIFTH GENERATION COGNITIVE ARCHITECTURE (SSM-BASED)
+------------------------------------------------------------------
+COPYRIGHT © 2026 JORGE HUMBERTO DÁVALOS GONZÁLEZ.
+ALL RIGHTS RESERVED.
 
-*** COMMERCIAL USE STRICTLY PROHIBITED WITHOUT AUTHORIZATION ***
+SYSTEM: WORLD MODEL SIMULATION & PHYSICS-INFORMED VIDEO GENERATION.
+LOCATION: GUADALAJARA, JALISCO, MÉXICO.
+CONTACT FOR COMMERCIAL LICENSING: luckystrike1250@gmail.com
+------------------------------------------------------------------
 
-This software is protected by international copyright laws.
-You are free to use this code for:
-- Academic Research
-- Personal Experiments
-- Non-profit Educational use
+LEGAL NOTICE / AVISO LEGAL:
+This software is protected by international copyright laws and treaties.
+UNAUTHORIZED COMMERCIAL USE IS STRICTLY PROHIBITED.
 
-YOU ARE NOT ALLOWED TO:
-- Use this code in any product that generates revenue.
-- Use this code inside a company workflow.
-- Sell or sub-license this architecture.
-
-IF YOU WISH TO MONETIZE THIS TECHNOLOGY:
-You must contact the Architect (Jorge Humberto Dávalos González) to negotiate 
-a Royalty or Profit-Sharing Agreement. Any unauthorized commercial use will 
-be subject to legal action.
--------------------------------------------------------------------------
+1. ACADEMIC USE: Permitted with explicit attribution to 
+   Jorge Humberto Dávalos González.
+2. COMMERCIAL USE: Requires a written Commercial License Agreement 
+   obtained directly from the author via the email above.
+------------------------------------------------------------------
 """
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from dataclasses import dataclass
 
 # === CONFIGURACIÓN DEL SISTEMA AETERNA ===
-# Arquitectura: Jorge Humberto Dávalos González (Orion)
 @dataclass
 class AeternaConfig:
-    dim_model: int = 4096       # Alta dimensionalidad para realismo
+    dim_model: int = 4096       # Alta dimensionalidad para realismo (Google TPU Optimized)
     num_layers: int = 64        # Profundidad tipo 'Mamba'
     state_dim: int = 128        # Dimensión del estado SSM
     vocab_size: int = 65536     # Codebook visual de alta fidelidad
@@ -43,6 +40,7 @@ class IsochronSSMBlock(nn.Module):
     """
     Implementa el Escaneo Selectivo para evitar el cuello de botella
     de la atención cuadrática. Complejidad O(N).
+    Diseñado para inferencia de latencia ultrabaja en Vertex AI.
     """
     def __init__(self, config):
         super().__init__()
@@ -165,3 +163,4 @@ if __name__ == "__main__":
     model = AETERNA_V(config)
     print(f">> AETERNA-V ONLINE. Protocolos Logos y Resonance Activos.")
     print(f">> Arquitecto: Jorge Humberto Dávalos González")
+    print(f">> Estado: Esperando Tensores en Vertex AI...")
