@@ -3,19 +3,23 @@ AETERNA-V: Fifth Generation Cognitive Architecture (SSM-Based)
 -------------------------------------------------------------------------
 Copyright (c) 2026 Jorge Humberto Dávalos González (Orion / Vox-114)
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at: http://www.apache.org/licenses/LICENSE-2.0
+*** COMMERCIAL USE STRICTLY PROHIBITED WITHOUT AUTHORIZATION ***
 
-UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING, SOFTWARE
-DISTRIBUTED UNDER THE LICENSE IS DISTRIBUTED ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
-SEE THE LICENSE FOR THE SPECIFIC LANGUAGE GOVERNING PERMISSIONS AND
-LIMITATIONS UNDER THE LICENSE.
+This software is protected by international copyright laws.
+You are free to use this code for:
+- Academic Research
+- Personal Experiments
+- Non-profit Educational use
 
-AUTHORSHIP NOTICE:
-Any use, modification, or distribution of this code must explicitly cite 
-Jorge Humberto Dávalos González as the original architect.
+YOU ARE NOT ALLOWED TO:
+- Use this code in any product that generates revenue.
+- Use this code inside a company workflow.
+- Sell or sub-license this architecture.
+
+IF YOU WISH TO MONETIZE THIS TECHNOLOGY:
+You must contact the Architect (Jorge Humberto Dávalos González) to negotiate 
+a Royalty or Profit-Sharing Agreement. Any unauthorized commercial use will 
+be subject to legal action.
 -------------------------------------------------------------------------
 """
 import torch
