@@ -131,3 +131,11 @@ class AETERNA_V(nn.Module):
         physics_loss = self.logos.verify_ontology(x, prev_state)
         logits = self.lm_head(x)
         return logits, physics_loss
+
+## ⚖️ LICENCIA Y MONETIZACIÓN
+
+Este proyecto está bajo una **Licencia Estricta de Uso No Comercial**.
+* **Investigadores/Estudiantes:** Son bienvenidos a usar el código libremente.
+* **Empresas/Startups:** Si desean implementar **AETERNA-V** en un producto comercial, **deben contactar al autor para obtener una Licencia Comercial**.
+
+**© 2026 Jorge Humberto Dávalos González. Todos los derechos reservados.**
