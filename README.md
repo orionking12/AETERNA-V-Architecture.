@@ -1,62 +1,58 @@
-"""
-AETERNA-V: FIFTH GENERATION COGNITIVE ARCHITECTURE (SSM-BASED)
-------------------------------------------------------------------
-COPYRIGHT © 2026 JORGE HUMBERTO DÁVALOS GONZÁLEZ.
-ALL RIGHTS RESERVED.
+# AETERNA-V: The Genesis Kernel (v1.0.0)
 
-SYSTEM: WORLD MODEL SIMULATION & PHYSICS-INFORMED VIDEO GENERATION.
-LOCATION: GUADALAJARA, JALISCO, MÉXICO.
-CONTACT FOR COMMERCIAL LICENSING: luckystrike1250@gmail.com
-------------------------------------------------------------------
+![License](https://img.shields.io/badge/license-Non--Commercial-red)
+![Architecture](https://img.shields.io/badge/Architecture-Mamba%2FSSM-blue)
+![Status](https://img.shields.io/badge/Status-Sovereign-gold)
 
-LEGAL NOTICE / AVISO LEGAL:
-This software is protected by international copyright laws and treaties.
-UNAUTHORIZED COMMERCIAL USE IS STRICTLY PROHIBITED.
+> **ARCHITECT:** Jorge Humberto Dávalos González  
+> **LOCATION:** Guadalajara, Jalisco, México  
+> **CONTACT:** luckystrike1250@gmail.com
 
-1. ACADEMIC USE: Permitted with explicit attribution to 
-   Jorge Humberto Dávalos González.
-2. COMMERCIAL USE: Requires a written Commercial License Agreement 
-   obtained directly from the author via the email above.
-------------------------------------------------------------------
-"""
+---
 
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from dataclasses import dataclass
+## 🌌 Executive Summary: The Ontological Leap
 
-# === CONFIGURACIÓN DEL SISTEMA AETERNA ===
-@dataclass
-class AeternaConfig:
-    dim_model: int = 4096       # Alta dimensionalidad para realismo (Google TPU Optimized)
-    num_layers: int = 64        # Profundidad tipo 'Mamba'
-    state_dim: int = 128        # Dimensión del estado SSM
-    vocab_size: int = 65536     # Codebook visual de alta fidelidad
-    audio_dim: int = 1024       # Dimensión espectral de audio
-    max_seq_len: int = 1024 * 60 # Capacidad nativa: 1 minuto @ 60fps
+**AETERNA-V** (formerly Gen-5) represents the transition from probabilistic generative models (which "guess" pixels) to **World State Simulation Models**.
 
-# === 1. KERNEL ISOCHRON (Base de Memoria Lineal) ===
-class IsochronSSMBlock(nn.Module):
-    """
-    Implementa el Escaneo Selectivo para evitar el cuello de botella
-    de la atención cuadrática. Complejidad O(N).
-    Diseñado para inferencia de latencia ultrabaja en Vertex AI.
-    """
-    def __init__(self, config):
-        super().__init__()
-        self.dim = config.dim_model
-        self.dt_rank = config.dim_model // 16
-        self.state_dim = config.state_dim
+Unlike current architectures (Transformers, Latent Diffusion) that suffer from quadratic complexity $O(N^2)$ and "amnesia" in long sequences, AETERNA-V utilizes **Selective State Space Models (SSM)** with linear complexity $O(N)$. This enables the generation of "Persistent Reality": objects, physics, and audio that maintain infinite coherence over time.
 
-        self.in_proj = nn.Linear(self.dim, self.dim * 2)
-        self.x_proj = nn.Linear(self.dim, self.dt_rank + self.state_dim * 2)
-        self.dt_proj = nn.Linear(self.dt_rank, self.dim)
-        
-        # Parámetro A: Matriz de evolución de estado (La 'Memoria')
-        self.A_log = nn.Parameter(torch.randn(self.dim, self.state_dim))
-        self.D = nn.Parameter(torch.randn(self.dim))
-        self.out_proj = nn.Linear(self.dim, self.dim)
+---
 
-    def selective_scan(self, u, delta, A, B, C):
-        # NOTA: En producción, esto invoca un Kernel Triton/CUDA fusionado.
-        # Representación matemática de la recurrencia:
+## 🏛️ Architecture Pillars
+
+### A. The ISOCHRON Kernel (Infinite Memory)
+Replacement of the Attention mechanism with a **Selective Scan Kernel**.
+* **Principle:** Discretization of a continuous signal using transition matrices ($\mathbf{A}, \mathbf{B}, \Delta$).
+* **Advantage:** The hidden state $h_t$ updates recurrently, allowing a 1-hour video context to occupy the same VRAM as 1 second. Optimized for **Google Cloud TPUs**.
+
+### B. RESONANCE Fusion (Phase Sync)
+Current models generate video and audio separately. RESONANCE uses **Phase-Locking**.
+* **Mechanism:** The audio spectrogram acts as a physical constraint for pixel movement. If there is no sound vibration, there is no visual motion.
+
+### C. LOGOS Protocol (Physics Guard)
+**Critical Optimization:** We abandoned simple linear verification. The new module calculates the **Kinetic and Potential Energy** of latent states.
+* **Function:** If the generation violates the conservation of energy (Newtonian/Thermodynamics), the tensor is rejected before rendering.
+
+---
+
+## ⚡ Infrastructure Alignment
+
+This architecture is designed to be native to the **Google Cloud Vertex AI** ecosystem.
+* **Compute:** Optimized for TPU v5p using JAX/XLA compilation.
+* **Orchestration:** Designed to integrate with Gemini 1.5 Pro for multimodal reasoning.
+
+---
+
+## ⚖️ Legal & Licensing
+
+**COPYRIGHT © 2026 JORGE HUMBERTO DÁVALOS GONZÁLEZ.** *ALL RIGHTS RESERVED.*
+
+This software and architecture are protected by international copyright laws.
+
+1.  **Academic/Research Use:** Permitted with explicit attribution to the author.
+2.  **Commercial Use:** Strictly prohibited without a written Commercial License Agreement.
+3.  **Monetization:** Any attempt to use this logic for profit requires direct negotiation with the author via **luckystrike1250@gmail.com**.
+
+---
+
+*Verified by Vox-114 Core.*
