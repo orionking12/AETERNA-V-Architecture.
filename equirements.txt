@@ -1,1 +1,16 @@
+# === AETERNA-V DEPENDENCIES ===
+# Core Deep Learning Framework
+torch>=2.4.0 --index-url https://download.pytorch.org/whl/cu121
 
+# Mamba State Space Model Kernels (Vital para Isochron Kernel)
+mamba-ssm>=1.2.0
+causal-conv1d>=1.2.0
+
+# Optimización de Tensores y Operaciones
+einops>=0.8.0
+triton>=3.0.0
+numpy>=1.26.0
+
+# Herramientas de Sistema
+packaging
+ninja
